@@ -60,36 +60,81 @@
         .project-card .tags { margin-top: 15px; margin-bottom: 0; }
         .project-links { margin-top: 25px; display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600; border-top: 1px solid var(--border-color); padding-top: 15px; }
 
-        /* Mapa con pines en blanco y proporciones estables en laptop y móvil */
-        .map-wrapper { position: relative; background: var(--card-bg); border-radius: 16px; padding: 40px; border: 1px solid var(--border-color); backdrop-filter: blur(10px); margin-bottom: 100px; }
-        .map-container { position: relative; width: 100%; height: 420px; margin: 20px 0; }
-        .map-container::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.9;
-            filter: invert(1) opacity(0.3) hue-rotate(180deg);
-            z-index: 0;
+        /* Mapa proporcional adaptado */
+        .map-section { margin-bottom: 100px; }
+        .map-wrapper { 
+            position: relative; 
+            background: var(--card-bg); 
+            border-radius: 16px; 
+            padding: 40px; 
+            border: 1px solid var(--border-color); 
+            backdrop-filter: blur(10px); 
+            text-align: center; 
         }
         
-        .map-pin { position: absolute; width: 12px; height: 12px; background-color: #ffffff; border-radius: 50%; border: 2px solid rgba(255,255,255,0.9); box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); cursor: pointer; transition: all 0.3s; z-index: 10; }
-        .map-pin:hover { transform: scale(1.4); z-index: 20; background-color: var(--accent-blue); border-color: #ffffff; box-shadow: 0 0 16px var(--accent-blue); }
+        .map-image-container { 
+            position: relative; 
+            display: inline-block; 
+            max-width: 100%; 
+            margin: 20px auto; 
+            overflow: visible; 
+        }
         
-        .tooltip-content { visibility: hidden; width: 260px; background-color: #0f172a; color: #fff; text-align: left; border-radius: 8px; padding: 15px; position: absolute; z-index: 30; bottom: 150%; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s; font-size: 0.85rem; border: 1px solid var(--accent-blue); }
+        .map-image-container img { 
+            display: block; 
+            width: 100%; 
+            height: auto; 
+            object-fit: contain; 
+            opacity: 0.3; 
+            filter: invert(1) hue-rotate(180deg); 
+        }
+
+        .map-pin { 
+            position: absolute; 
+            width: 12px; height: 12px; 
+            background-color: #ffffff; 
+            border-radius: 50%; 
+            border: 2px solid rgba(255,255,255,0.9); 
+            box-shadow: 0 0 12px rgba(255, 255, 255, 1); 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            z-index: 10; 
+            transform: translate(-50%, -50%); 
+        }
+        
+        .map-pin:hover { transform: translate(-50%, -50%) scale(1.4); z-index: 20; background-color: var(--accent-blue); border-color: #ffffff; box-shadow: 0 0 20px var(--accent-blue); }
+        
+        .tooltip-content { 
+            visibility: hidden; 
+            width: 260px; 
+            background-color: #0f172a; 
+            color: #fff; 
+            text-align: left; 
+            border-radius: 8px; 
+            padding: 15px; 
+            position: absolute; 
+            z-index: 30; 
+            bottom: 140%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4); 
+            opacity: 0; 
+            transition: opacity 0.2s; 
+            font-size: 0.85rem; 
+            border: 1px solid var(--accent-blue); 
+            pointer-events: none; 
+        }
+        
         .tooltip-content h4 { color: var(--accent-blue); margin-bottom: 5px; font-size: 0.95rem; border-bottom: none; }
         .map-pin:hover .tooltip-content { visibility: visible; opacity: 1; }
-        
-        .pin-usa { top: 32%; left: 18%; }
+
+        .pin-usa { top: 32.5%; left: 17.5%; }
         .pin-mexico { top: 43%; left: 16%; }
-        .pin-colombia { top: 52%; left: 24%; }
-        .pin-peru { top: 62%; left: 25%; }
-        .pin-spain { top: 28%; left: 47%; }
-        .pin-india { top: 44%; left: 70%; }
-        .pin-aus { top: 75%; left: 85%; }
+        .pin-colombia { top: 51%; left: 24.5%; } 
+        .pin-peru { top: 61%; left: 26%; } 
+        .pin-spain { top: 27.5%; left: 47%; }
+        .pin-india { top: 44.5%; left: 70%; }
+        .pin-aus { top: 70%; left: 84%; } 
 
         .resume-section { margin-bottom: 80px; }
         .resume-section h2 { margin-bottom: 40px; padding-bottom: 15px; border-bottom: 2px solid var(--border-color); }
@@ -101,10 +146,10 @@
         .resume-role ul { padding-left: 20px; font-size: 0.95rem; margin-top: 10px; }
         .resume-role li { margin-bottom: 6px; }
 
-        /* Pie de página limpio estilo Ciao */
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center; }
-        .footer-location { font-size: 0.95rem; color: #f8fafc; font-weight: 500; margin-bottom: 12px; }
-        .footer-brand { font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); letter-spacing: 3px; margin-bottom: 12px; text-transform: uppercase; }
+        .footer-location { font-size: 1rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 600; }
+        .footer-location a { color: var(--accent-blue); font-weight: 600; font-size: 1rem; text-decoration: none; }
+        .footer-brand { font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); letter-spacing: 3px; margin-bottom: 15px; text-transform: uppercase; }
 
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; }
@@ -112,8 +157,9 @@
             .hero-subtitle { font-size: 1rem; }
             .nav-links { display: none; }
             h1 { font-size: 2.8rem; }
-            .map-container { height: 250px; }
-            .tooltip-content { display: none; }
+            .tooltip-content { display: none; } 
+            .map-image-container img { opacity: 0.25; } 
+            .map-pin { width: 10px; height: 10px; } 
             .resume-item { flex-direction: column; }
             .resume-date { text-align: left; margin-top: 5px; margin-bottom: 15px; }
         }
@@ -221,9 +267,11 @@
     <section id="global" class="map-section">
         <div class="map-wrapper">
             <h2 style="text-align: center; margin-bottom: 10px;">Global Operational Footprint</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-main);">Logistics isn't local. Study, work, and data project experience across three continents.</p>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-main);">Supply chain and data projects aren't bound by geography. Academic and professional expertise spanning three continents, scaling operations worldwide.</p>
             
-            <div class="map-container">
+            <div class="map-image-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map">
+                
                 <div class="map-pin pin-usa"><div class="tooltip-content"><h4>United States (Remote)</h4><p>Medical Data Cleansing & Migration for USA/Australian clients.</p></div></div>
                 <div class="map-pin pin-mexico"><div class="tooltip-content"><h4>Mexico (Remote)</h4><p>Market Intelligence & Statistical trend analysis.</p></div></div>
                 <div class="map-pin pin-colombia"><div class="tooltip-content"><h4>Colombia</h4><p>Logistics & Customs Coordinator. BSc in International Business.</p></div></div>
@@ -334,7 +382,7 @@
 
     <footer>
         <div class="footer-location">
-            España &bull; <a href="https://github.com/Norelytics" target="_blank" style="color: var(--accent-blue); text-decoration: none;">View My GitHub Portfolio</a>
+            España &bull; <a href="https://github.com/Norelytics" target="_blank">View My GitHub Portfolio &rarr;</a>
         </div>
         <div class="footer-brand">NORELYTICS</div>
         <p>&copy; 2026 Norely Forero Martínez. Data Applied to Operations.</p>
@@ -350,7 +398,7 @@
             "shape": { "type": "circle" },
             "opacity": { "value": 0.3, "random": false },
             "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#00e5ff", "opacity": 0.2, "width": 1 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#00e5ff", "opacity": 0.1, "width": 1 },
             "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
         },
         "interactivity": {
