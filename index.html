@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norely Forero | Supply Chain Analytics</title>
+    <title>Norely Forero | Data-Driven Supply Chain</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Reset & Variables - Light Tech Corporate Style (Clear & Modern) */
+        /* CSS Reset & Variables - Dark Tech Theme (High Contrast & Clear) */
         :root {
-            --bg-color: #ffffff;
-            --text-main: #475569;
-            --text-dark: #0f172a;
-            --accent-blue: #0ea5e9; /* Azul principal corporativo */
-            --accent-dark: #0369a1; 
-            --accent-light: #f0f9ff;
-            --border-color: #e2e8f0;
+            --bg-color: #080b12; /* Negro profundo/azul marino */
+            --text-main: #94a3b8; /* Gris suave para cuerpo de texto */
+            --text-dark: #f8fafc; /* Blanco hueso para títulos (High contrast) */
+            --accent-blue: #00e5ff; /* Cian vibrante para acentos */
+            --accent-light: rgba(0, 229, 255, 0.1); /* Fondo cian transparente */
+            --border-color: rgba(255, 255, 255, 0.08); /* Borde blanco sutil */
+            --card-bg: rgba(20, 25, 35, 0.6); /* Fondo de tarjeta un poco más claro */
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        html { scroll-behavior: smooth; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; position: relative; }
 
@@ -26,96 +26,98 @@
         #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; background-color: var(--bg-color); }
 
         /* Layout Container */
-        .container { max-width: 1150px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 1; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; position: relative; z-index: 1; }
 
         /* Typography */
-        h1, h2, h3, h4 { color: var(--text-dark); font-weight: 700; line-height: 1.2; }
-        h1 { font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 20px; }
-        h2 { font-size: 2.2rem; margin-bottom: 20px; letter-spacing: -0.5px; }
-        h3 { font-size: 1.1rem; margin-bottom: 12px; }
-        p { font-size: 1.05rem; margin-bottom: 15px; color: var(--text-main); }
-        a { color: var(--accent-blue); text-decoration: none; font-weight: 600; transition: color 0.2s; }
-        a:hover { color: var(--accent-dark); }
+        h1, h2, h3, h4 { color: var(--text-dark); font-weight: 700; line-height: 1.1; }
+        h1 { font-size: 3.5rem; letter-spacing: -1.5px; margin-bottom: 25px; }
+        h2 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-top: 80px; margin-bottom: 40px; }
+        h3 { font-size: 1.2rem; margin-bottom: 12px; color: var(--text-dark); letter-spacing: -0.5px; }
+        p { margin-bottom: 20px; font-size: 1.05rem; }
+        a { color: var(--accent-blue); text-decoration: none; transition: color 0.3s; }
+        a:hover { opacity: 0.8; }
 
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; margin-bottom: 60px; border-bottom: 1px solid var(--border-color); background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 100; }
-        .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; margin-bottom: 80px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; border-bottom: 1px solid var(--border-color); background: rgba(8, 11, 18, 0.95); backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 100; }
+        .nav-logo { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: var(--text-main); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a { color: var(--text-main); }
         .nav-links a:hover { color: var(--accent-blue); }
 
         /* Hero Section with Photo */
         .hero { display: flex; align-items: center; gap: 60px; max-width: 1000px; margin: 0 auto 100px auto; padding-top: 20px; }
         .hero-text { flex: 1; }
         .hero-subtitle { font-size: 1.15rem; color: var(--text-main); margin-bottom: 30px; }
-        .hero-image { flex-shrink: 0; }
-        .hero-image img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-light); box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.2); }
+        .hero-image { flex-shrink: 0; position: relative; }
+        
+        /* Imagen de Perfil con brillo */
+        .hero-image img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color); box-shadow: 0 0 40px rgba(0, 229, 255, 0.15); z-index: 2; position: relative; }
 
-        /* 4-Column Capabilities */
-        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 100px; }
-        .feature-item .icon-wrapper { font-size: 2.2rem; color: var(--accent-blue); margin-bottom: 20px; display: inline-block; padding: 15px; background: var(--accent-light); border-radius: 12px; }
-        .feature-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
-        .feature-item p { font-size: 0.95rem; line-height: 1.5; }
+        /* Accent Text above Main Heading */
+        .accent-text { color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        
+        /* Hero Buttons/Links */
+        .hero-links { margin-top: 40px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+        .hero-links a { font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 8px; border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 6px; background: rgba(255,255,255,0.03); transition: all 0.3s ease; }
+        .hero-links a:hover { background: var(--accent-light); border-color: var(--accent-blue); color: var(--accent-blue); text-decoration: none;}
 
-        /* Project Grid */
-        .projects-section { margin-bottom: 100px; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .project-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: var(--accent-blue); }
+        /* Tech Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .tag { background-color: var(--accent-light); color: var(--accent-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(0, 229, 255, 0.3); letter-spacing: 0.5px; }
+
+        /* Project Cards (Estilo Cajitas) */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; transition: all 0.3s ease; display: flex; flex-direction: column; backdrop-filter: blur(10px); }
+        .project-card:hover { border-color: var(--accent-blue); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
         .project-card p { font-size: 0.95rem; flex-grow: 1; }
-        
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
-        .tag { background-color: var(--accent-light); color: var(--accent-dark); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid #bae6fd; }
-        .project-links { margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color); display: flex; gap: 15px; font-size: 0.9rem; }
+        .project-card .tags { margin-top: 15px; margin-bottom: 0; }
+        .project-links { margin-top: 25px; display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600; border-top: 1px solid var(--border-color); padding-top: 15px; }
 
-        /* Map Section (Clean Gray & Blue) */
-        .map-section { margin-bottom: 100px; }
-        .map-wrapper { position: relative; background: #ffffff; border-radius: 16px; padding: 40px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
-        .map-container { position: relative; width: 100%; height: 450px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg'); background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(100%); margin: 20px 0; }
+        /* Global Footprint Map Section (Dark Map) */
+        .map-wrapper { position: relative; background: var(--card-bg); border-radius: 16px; padding: 40px; border: 1px solid var(--border-color); backdrop-filter: blur(10px); margin-bottom: 100px; }
+        .map-container { position: relative; width: 100%; height: 450px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg'); background-size: cover; background-position: center; opacity: 0.9; filter: invert(1) opacity(0.3) hue-rotate(180deg); /* Darker map */ margin: 20px 0; }
         
-        /* Map Pins - Blue */
-        .map-pin { position: absolute; width: 16px; height: 16px; background-color: var(--accent-blue); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 4px 8px rgba(14, 165, 233, 0.4); cursor: pointer; transition: transform 0.2s; }
-        .map-pin:hover { transform: scale(1.4); z-index: 20; background-color: var(--accent-dark); }
+        /* Map Pins - Vibrant Cyan/Lime */
+        .map-pin { position: absolute; width: 14px; height: 14px; background-color: var(--accent-blue); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 15px rgba(0, 229, 255, 0.5); cursor: pointer; transition: transform 0.2s; }
+        .map-pin:hover { transform: scale(1.4); z-index: 20; background-color: #deff9a; /* Luminous lime */ }
         
-        .tooltip-content { visibility: hidden; width: 260px; background-color: var(--text-dark); color: #fff; text-align: left; border-radius: 8px; padding: 15px; position: absolute; z-index: 30; bottom: 150%; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s; font-size: 0.85rem; }
-        .tooltip-content h4 { color: var(--accent-blue); margin-bottom: 5px; font-size: 0.95rem; }
+        .tooltip-content { visibility: hidden; width: 260px; background-color: #0f172a; color: #fff; text-align: left; border-radius: 8px; padding: 15px; position: absolute; z-index: 30; bottom: 150%; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s; font-size: 0.85rem; border: 1px solid var(--accent-blue); }
+        .tooltip-content h4 { color: var(--accent-blue); margin-bottom: 5px; font-size: 0.95rem; border-bottom: none; }
         .map-pin:hover .tooltip-content { visibility: visible; opacity: 1; }
         
-        /* Map Pin Positions */
+        /* Map Pin Positions (Aproximadas para visualización) */
         .pin-usa { top: 32%; left: 18%; }
         .pin-mexico { top: 43%; left: 16%; }
         .pin-colombia { top: 52%; left: 24%; }
         .pin-peru { top: 62%; left: 25%; }
-        .pin-spain { top: 28%; left: 47%; }
+        .pin-spain { top: 28%; left: 47%; } /* España en Europa */
         .pin-india { top: 44%; left: 70%; }
         .pin-aus { top: 75%; left: 85%; }
 
-        /* Experience & Education */
+        /* Experience & Education Lists */
         .resume-section { margin-bottom: 80px; }
         .resume-section h2 { margin-bottom: 40px; padding-bottom: 15px; border-bottom: 2px solid var(--border-color); }
         .resume-item { display: flex; justify-content: space-between; margin-bottom: 35px; }
         .resume-role { flex: 3; }
         .resume-role h3 { margin-bottom: 5px; color: var(--text-dark); font-size: 1.15rem; }
-        .resume-company { color: var(--accent-blue); font-weight: 600; margin-bottom: 10px; display: block; font-size: 0.95rem; }
-        .resume-date { flex: 1; text-align: right; color: #64748b; font-size: 0.9rem; font-weight: 500; padding-left: 20px; }
-        .resume-role ul { padding-left: 20px; font-size: 0.95rem; margin-top: 10px; color: var(--text-main); }
+        .resume-company { color: var(--accent-blue); font-weight: 500; margin-bottom: 10px; display: block; font-size: 0.95rem; }
+        .resume-date { flex: 1; text-align: right; color: var(--text-main); font-size: 0.85rem; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; }
+        .resume-role ul { padding-left: 20px; font-size: 0.95rem; margin-top: 10px; }
         .resume-role li { margin-bottom: 6px; }
 
         /* Footer */
-        footer { padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.9rem; color: #94a3b8; }
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.85rem; color: var(--text-main); }
 
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .resume-item { flex-direction: column; }
-            .resume-date { text-align: left; margin-top: 5px; margin-bottom: 15px; padding-left: 0; }
-            h1 { font-size: 2.5rem; }
+            .hero-links { justify-content: center; }
+            .hero-subtitle { font-size: 1rem; }
+            .nav-links { display: none; }
+            h1 { font-size: 2.8rem; }
             .map-container { height: 250px; }
             .tooltip-content { display: none; }
-        }
-        @media (max-width: 600px) {
-            .features-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            .resume-item { flex-direction: column; }
+            .resume-date { text-align: left; margin-top: 5px; margin-bottom: 15px; }
         }
     </style>
 </head>
@@ -125,71 +127,56 @@
 
 <div class="container">
     <nav>
-        <div class="nav-logo">Norely Forero</div>
+        <div class="nav-logo">Norely Forero | Data applied to operations.</div>
         <div class="nav-links">
-            <a href="#capabilities">Capabilities</a>
-            <a href="#projects">Data Projects</a>
-            <a href="#global">Global Footprint</a>
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
             <a href="#experience">Experience</a>
             <a href="https://linkedin.com/in/norely-forero" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Norelytics" target="_blank">GitHub</a>
         </div>
     </nav>
 
-    <section class="hero">
+    <section id="about" class="hero">
         <div class="hero-text">
-            <h1>Applied Analytics for Global Supply Chains.</h1>
-            <p class="hero-subtitle">Transforming transactional data into strategic value. I bridge the gap between physical logistics operations and advanced data science (Python, R, SQL, Machine Learning).</p>
-            <a href="#projects" style="display: inline-block; background: var(--accent-blue); color: white; padding: 10px 24px; border-radius: 6px; font-weight: 600;">View Projects</a>
-            <a href="https://github.com/Norelytics" target="_blank" style="display: inline-block; margin-left: 15px; color: var(--text-dark); font-weight: 600;">GitHub Repository &rarr;</a>
+            <span class="accent-text">Data-Driven Supply Chain</span>
+            <h1>Applied Analytics for Global Operations.</h1>
+            <p class="hero-subtitle">Transforming transactional data into strategic value. I bridge the gap between physical logistics operations (customs, freight, warehousing) and advanced data science (Python, R, SQL, Machine Learning), mapping the real world to data structures.</p>
+            
+            <div class="hero-links">
+                <a href="https://linkedin.com/in/norely-forero" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Norelytics" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.freelancer.com/u/norelyforeromar" target="_blank"><i class="fa-solid fa-globe"></i> Freelancer Profile</a>
+            </div>
         </div>
         <div class="hero-image">
-            <img src="perfil.jpg" alt="Norely Forero" onerror="this.src='https://via.placeholder.com/220x220/f0f9ff/0ea5e9?text=Foto'">
+            <img src="perfil.jpg" alt="Norely Forero" onerror="this.src='https://via.placeholder.com/220x220/1e293b/00e5ff?text=Foto'">
         </div>
     </section>
 
-    <section id="capabilities" class="features-grid">
-        <div class="feature-item">
-            <div class="icon-wrapper"><i class="fa-solid fa-ship"></i></div>
-            <h3>Freight & Logistics</h3>
-            <p>End-to-end coordination of international operations. Proven reduction in transport costs through route optimization and load consolidation.</p>
-        </div>
-        <div class="feature-item">
-            <div class="icon-wrapper"><i class="fa-solid fa-file-signature"></i></div>
-            <h3>Customs Compliance</h3>
-            <p>Expertise in regulatory compliance, biosecurity, and international customs clearance to ensure fluid, uninterrupted supply chains.</p>
-        </div>
-        <div class="feature-item">
-            <div class="icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
-            <h3>Demand Planning</h3>
-            <p>Advanced demand forecasting utilizing ETS, ARIMA, and econometric models to optimize safety stock and mitigate inventory trade-offs.</p>
-        </div>
-        <div class="feature-item">
-            <div class="icon-wrapper"><i class="fa-solid fa-network-wired"></i></div>
-            <h3>Advanced Analytics</h3>
-            <p>Mapping the physical world to data structures. Proficient in integrating predictive ML models, hyperparameter tuning, and corporate ERPs.</p>
+    <section>
+        <h2>Capabilities</h2>
+        <p>A multi-disciplinary profile leveraging data science to solve logistics, customs, and planning challenges.</p>
+        <div class="tags" style="margin-top: 25px;">
+            <span class="tag">Freight & Logistics</span>
+            <span class="tag">Customs Compliance</span>
+            <span class="tag">Demand Planning</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Python & R</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">SAP & BPCS</span>
         </div>
     </section>
 
-    <section id="projects" class="projects-section">
+    <section id="projects" class="resume-section">
         <h2 style="text-align: center; margin-bottom: 40px;">Selected Data Projects</h2>
         <div class="projects-grid">
             
             <div class="project-card">
-                <h3>LendingClub — Default Prediction</h3>
-                <p>End-to-end Machine Learning project analyzing loan default risk using data from 2010–2018. Trained Logistic Regression, Random Forest, and XGBoost models.</p>
-                <p>Achieved best performance using Optuna for hyperparameter tuning and tracked experiments via MLflow, successfully identifying 70% of defaulters by optimizing decision thresholds.</p>
-                <div class="tags">
-                    <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">MLflow</span><span class="tag">Optuna</span><span class="tag">Power BI</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Norelytics/lending-club-default-prediction" target="_blank">View on GitHub &rarr;</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>Retail Demand Forecasting</h3>
-                <p>A hands-on time series modeling exercise using retail sales data (Adidas US, 2020–2021) to compare forecasting performance between Python and Excel/Power Query.</p>
-                <p>The Naive baseline proved most robust for footwear (9.7% sMAPE), while a 3-month rolling average optimized apparel forecasting.</p>
+                <h3>Retail Demand Forecasting — Adidas US</h3>
+                <p>Hybrid approach (Python and Power Query) using 2-years of retail sales data (2020–2021) to project demand. Optimized forecasting sMAPE to 9.7% for footwear and 6.0% for apparel.</p>
                 <div class="tags">
                     <span class="tag">Python</span><span class="tag">Power Query</span><span class="tag">Time Series</span>
                 </div>
@@ -202,24 +189,22 @@
             <div class="project-card">
                 <h3>Chemical Sector S&OP</h3>
                 <p>Built and compared forecasting models (ETS, ARIMA, econometric) in R and Python for 100 SKUs. Estimated safety stock identifying inventory trade-offs and stockout risks.</p>
-                <p>Developed reporting outputs to support operational planning and replenishment decision-making.</p>
                 <div class="tags">
                     <span class="tag">R</span><span class="tag">ARIMA</span><span class="tag">Inventory Strategy</span>
                 </div>
                 <div class="project-links">
-                    <a href="#">Academic Thesis (UCLM)</a>
+                    <a href="#">Academic Thesis (UCLM) &rarr;</a>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>Freelance Data Intelligence</h3>
-                <p>Independent projects focused on data quality and market analysis (2017 - 2024). Validated and cleansed medical and nutritional databases ensuring 100% data integrity.</p>
-                <p>Conducted international pricing benchmarking for over 600 retail product references to drive commercial strategy.</p>
+                <h3>Freelance Data Research & Analytics</h3>
+                <p>Data quality and market intelligence projects (2017 - 2024). Pricing benchmark for over 600 references and validation of nutritional/medical databases (USA/Australia).</p>
                 <div class="tags">
-                    <span class="tag">Data Cleansing</span><span class="tag">Market Research</span><span class="tag">Benchmarking</span>
+                    <span class="tag">Data Cleansing</span><span class="tag">Market Research</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://www.freelancer.com/u/norelyforeromar" target="_blank">View Freelancer Profile &rarr;</a>
+                    <a href="https://www.freelancer.com/u/norelyforeromar" target="_blank">Freelancer Profile &rarr;</a>
                 </div>
             </div>
 
@@ -229,32 +214,32 @@
     <section id="global" class="map-section">
         <div class="map-wrapper">
             <h2 style="text-align: center; margin-bottom: 10px;">Global Operational Footprint</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-main);">Logistics isn't local. Executing operations and data projects across three continents.</p>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-main);">Logistics isn't local. Study, work, and data project experience across three continents.</p>
             
             <div class="map-container">
-                <div class="map-pin pin-usa"><div class="tooltip-content"><h4>United States</h4><p>Medical Data Cleansing & Migration ensuring 100% database consistency.</p></div></div>
-                <div class="map-pin pin-mexico"><div class="tooltip-content"><h4>Mexico</h4><p>Market Intelligence & Statistical trend analysis.</p></div></div>
-                <div class="map-pin pin-colombia"><div class="tooltip-content"><h4>Colombia</h4><p>Logistics & Customs Coordinator across HVAC, Toys, Wines, and Automotive sectors.</p></div></div>
-                <div class="map-pin pin-peru"><div class="tooltip-content"><h4>Peru</h4><p>Nutritional App Data validation and quality assurance.</p></div></div>
-                <div class="map-pin pin-spain"><div class="tooltip-content"><h4>Spain</h4><p>MSc in Economic Data Analytics. Focus on chemical sector demand forecasting.</p></div></div>
-                <div class="map-pin pin-india"><div class="tooltip-content"><h4>India</h4><p>International Benchmarking for over 600 retail product references.</p></div></div>
-                <div class="map-pin pin-aus"><div class="tooltip-content"><h4>Australia</h4><p>Customs & Biosecurity Agent at DHL. Diplomas in Int. Business.</p></div></div>
+                <div class="map-pin pin-usa"><div class="tooltip-content"><h4>United States (Remote)</h4><p>Medical Data Cleansing & Migration for USA/Australian clients.</p></div></div>
+                <div class="map-pin pin-mexico"><div class="tooltip-content"><h4>Mexico (Remote)</h4><p>Market Intelligence & Statistical trend analysis.</p></div></div>
+                <div class="map-pin pin-colombia"><div class="tooltip-content"><h4>Colombia</h4><p>Logistics & Customs Coordinator. BSc in International Business.</p></div></div>
+                <div class="map-pin pin-peru"><div class="tooltip-content"><h4>Peru (Remote)</h4><p>Weekly nutritional app product validation.</p></div></div>
+                <div class="map-pin pin-spain"><div class="tooltip-content"><h4>Spain</h4><p>MSc in Economic Data Analytics. Chemical sector demand forecasting TFM.</p></div></div>
+                <div class="map-pin pin-india"><div class="tooltip-content"><h4>India (Remote)</h4><p>International Benchmarking for over 600 retail product references.</p></div></div>
+                <div class="map-pin pin-aus"><div class="tooltip-content"><h4>Australia</h4><p>Customs Clearance & Biosecurity Agent at DHL. Graduate Diplomas.</p></div></div>
             </div>
         </div>
     </section>
 
     <section id="experience" class="resume-section">
-        <h2>Professional Experience</h2>
+        <h2>Work Experience</h2>
         
         <div class="resume-item">
             <div class="resume-role">
                 <h3>Customs Clearance & Biosecurity Agent</h3>
-                <span class="resume-company">DHL Express Australia</span>
+                <span class="resume-company">DHL Express Australia (Melbourne, AUS)</span>
                 <ul>
                     <li>Processed the daily clearance of international shipments within the Australian biosecurity regulatory framework, reducing release times by 20%.</li>
-                    <li>Handled customer inquiries in English regarding shipment release status, biosecurity requirements, and incidents, ensuring clear communication.</li>
+                    <li>Handled customer inquiries regarding shipment release status, biosecurity requirements, and incidents, ensuring clear communication.</li>
                     <li>Resolved regulatory and operational issues by coordinating with customs authorities and logistics agents to ensure service continuity.</li>
-                    <li>Identified workflow bottlenecks and proposed process improvements that increased team efficiency.</li>
+                    <li>Identified workflow bottlenecks and proposed process improvements.</li>
                 </ul>
             </div>
             <div class="resume-date">Jun 2024 — Jun 2025</div>
@@ -263,10 +248,10 @@
         <div class="resume-item">
             <div class="resume-role">
                 <h3>International Supply Chain Coordinator</h3>
-                <span class="resume-company">Grupo Inintegral GINN</span>
+                <span class="resume-company">Grupo Inintegral GINN (HVAC & Industrial, Remote)</span>
                 <ul>
-                    <li>Managed end-to-end international logistics operations for industrial HVAC projects, coordinating carriers, customs agents, and clients.</li>
-                    <li>Achieved 25% cost savings and 30% reduction in tracking errors through document automation and process improvement.</li>
+                    <li>Managed end-to-end international logistics operations for industrial HVAC projects.</li>
+                    <li>Achieved 25% cost savings and 30% reduction in tracking errors through document automation.</li>
                 </ul>
             </div>
             <div class="resume-date">Sep 2017 — Apr 2020</div>
@@ -275,10 +260,9 @@
         <div class="resume-item">
             <div class="resume-role">
                 <h3>Foreign Trade & Supply Chain Analyst</h3>
-                <span class="resume-company">Flexo Spring SAS</span>
+                <span class="resume-company">Flexo Spring SAS (Construction Sector, COL)</span>
                 <ul>
-                    <li>Managed 50+ monthly import operations, monitoring KPIs and reconciling costs against operational plans.</li>
-                    <li>Reduced import costs by 25% and transport costs by 15% through route optimization and load consolidation.</li>
+                    <li>Managed 50+ monthly import operations, monitoring KPIs and reconciling costs.</li>
                     <li>Recorded operations and inventory in ERP BPCS, ensuring full documentary and operational traceability.</li>
                 </ul>
             </div>
@@ -288,10 +272,9 @@
         <div class="resume-item">
             <div class="resume-role">
                 <h3>Import Coordinator</h3>
-                <span class="resume-company">Importadora Casa Colombia</span>
+                <span class="resume-company">Importadora Casa Colombia (COL)</span>
                 <ul>
-                    <li>Systematized all import operations, enabling customs process automation and improving full documentary traceability.</li>
-                    <li>Built door-to-door cost models for import analysis and competitive pricing, reducing costs by identifying leakages.</li>
+                    <li>Led procurement for Colombia’s first Solar Park with Trackers, achieving 15% cost reduction.</li>
                 </ul>
             </div>
             <div class="resume-date">May 2012 — Aug 2013</div>
@@ -300,18 +283,14 @@
         <div class="resume-item">
             <div class="resume-role">
                 <h3>Procurement & Supply Chain Analyst</h3>
-                <span class="resume-company">Fulgor Energía SAS</span>
-                <ul>
-                    <li>Led procurement for Colombia's first Solar Park with Trackers, achieving 15% cost reduction through strategic supplier selection.</li>
-                    <li>Managed 150+ annual purchase orders and negotiated transport contracts with savings of up to 20%.</li>
-                </ul>
+                <span class="resume-company">Fulgor Energía SAS (Toys & Wines Sectors, COL)</span>
             </div>
             <div class="resume-date">Feb 2010 — Mar 2011</div>
         </div>
     </section>
 
     <section class="resume-section">
-        <h2>Education & Certifications</h2>
+        <h2>Education</h2>
         
         <div class="resume-item" style="margin-bottom: 20px;">
             <div class="resume-role">
@@ -324,14 +303,14 @@
         <div class="resume-item" style="margin-bottom: 20px;">
             <div class="resume-role">
                 <h3>Google Data Analytics Professional Certificate</h3>
-                <span class="resume-company">Coursera</span>
+                <span class="resume-company">Coursera (Remote)</span>
             </div>
             <div class="resume-date">2024</div>
         </div>
 
         <div class="resume-item" style="margin-bottom: 20px;">
             <div class="resume-role">
-                <h3>Diplomas in Leadership, Management & Int. Business</h3>
+                <h3>Graduate Diplomas (Leadership, Management, Int. Business)</h3>
                 <span class="resume-company">Mercury Colleges & ACBI (Australia)</span>
             </div>
             <div class="resume-date">2021 — 2023</div>
@@ -340,14 +319,14 @@
         <div class="resume-item">
             <div class="resume-role">
                 <h3>BSc in International Business</h3>
-                <span class="resume-company">CUN (Colombia)</span>
+                <span class="resume-company">Corporación Unificada Nacional CUN (Colombia)</span>
             </div>
             <div class="resume-date">2006 — 2011</div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Norely Forero. Data-Driven Logistics & Supply Chain Analytics.</p>
+        <p>&copy; 2026 Norely Forero. Data Applied to Operations.</p>
     </footer>
 </div>
 
@@ -355,18 +334,18 @@
 <script>
     particlesJS("particles-js", {
         "particles": {
-            "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#cbd5e1" }, /* Puntos grises claros */
+            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ffffff" },
             "shape": { "type": "circle" },
-            "opacity": { "value": 0.6, "random": false },
+            "opacity": { "value": 0.3, "random": false },
             "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#cbd5e1", "opacity": 0.4, "width": 1 }, /* Líneas sutiles */
-            "move": { "enable": true, "speed": 1.2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            "line_linked": { "enable": true, "distance": 150, "color": "#00e5ff", "opacity": 0.2, "width": 1 },
+            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
         },
         "interactivity": {
             "detect_on": "canvas",
             "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.8, "color": "#0ea5e9" } }, "push": { "particles_nb": 3 } }
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } }, "push": { "particles_nb": 4 } }
         },
         "retina_detect": true
     });
