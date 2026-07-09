@@ -6,15 +6,15 @@
     <title>Norely Forero | Data-Driven Supply Chain</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Reset & Variables - Dark Tech Theme (High Contrast & Clear) */
+        /* CSS Reset & Variables - Dark Tech Theme */
         :root {
-            --bg-color: #080b12; /* Negro profundo/azul marino */
-            --text-main: #94a3b8; /* Gris suave para cuerpo de texto */
-            --text-dark: #f8fafc; /* Blanco hueso para títulos (High contrast) */
-            --accent-blue: #00e5ff; /* Cian vibrante para acentos */
-            --accent-light: rgba(0, 229, 255, 0.1); /* Fondo cian transparente */
-            --border-color: rgba(255, 255, 255, 0.08); /* Borde blanco sutil */
-            --card-bg: rgba(20, 25, 35, 0.6); /* Fondo de tarjeta un poco más claro */
+            --bg-color: #080b12;
+            --text-main: #94a3b8;
+            --text-dark: #f8fafc;
+            --accent-blue: #00e5ff;
+            --accent-light: rgba(0, 229, 255, 0.1);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(20, 25, 35, 0.6);
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,28 +44,23 @@
         .nav-links a { color: var(--text-main); }
         .nav-links a:hover { color: var(--accent-blue); }
 
-        /* Hero Section with Photo */
+        /* Hero Section */
         .hero { display: flex; align-items: center; gap: 60px; max-width: 1000px; margin: 0 auto 100px auto; padding-top: 20px; }
         .hero-text { flex: 1; }
         .hero-subtitle { font-size: 1.15rem; color: var(--text-main); margin-bottom: 30px; }
         .hero-image { flex-shrink: 0; position: relative; }
-        
-        /* Imagen de Perfil con brillo */
         .hero-image img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color); box-shadow: 0 0 40px rgba(0, 229, 255, 0.15); z-index: 2; position: relative; }
 
-        /* Accent Text above Main Heading */
         .accent-text { color: var(--accent-blue); font-weight: 600; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
         
-        /* Hero Buttons/Links */
         .hero-links { margin-top: 40px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
         .hero-links a { font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 8px; border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 6px; background: rgba(255,255,255,0.03); transition: all 0.3s ease; }
         .hero-links a:hover { background: var(--accent-light); border-color: var(--accent-blue); color: var(--accent-blue); text-decoration: none;}
 
-        /* Tech Tags */
         .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
         .tag { background-color: var(--accent-light); color: var(--accent-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(0, 229, 255, 0.3); letter-spacing: 0.5px; }
 
-        /* Project Cards (Estilo Cajitas) */
+        /* Project Cards */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .project-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; transition: all 0.3s ease; display: flex; flex-direction: column; backdrop-filter: blur(10px); }
         .project-card:hover { border-color: var(--accent-blue); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
@@ -73,24 +68,48 @@
         .project-card .tags { margin-top: 15px; margin-bottom: 0; }
         .project-links { margin-top: 25px; display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600; border-top: 1px solid var(--border-color); padding-top: 15px; }
 
-        /* Global Footprint Map Section (Dark Map) */
+        /* Global Footprint Map Section */
         .map-wrapper { position: relative; background: var(--card-bg); border-radius: 16px; padding: 40px; border: 1px solid var(--border-color); backdrop-filter: blur(10px); margin-bottom: 100px; }
-        .map-container { position: relative; width: 100%; height: 450px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg'); background-size: cover; background-position: center; opacity: 0.9; filter: invert(1) opacity(0.3) hue-rotate(180deg); /* Darker map */ margin: 20px 0; }
         
-        /* Map Pins - White */
-        .map-pin { position: absolute; width: 14px; height: 14px; background-color: #ffffff; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); cursor: pointer; transition: all 0.3s; }
+        /* CORRECCIÓN: Separamos el fondo para que el filtro no afecte a los puntos blancos */
+        .map-container { position: relative; width: 100%; height: 450px; margin: 20px 0; }
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9;
+            filter: invert(1) opacity(0.3) hue-rotate(180deg);
+            z-index: 0; /* Al fondo */
+        }
+        
+        /* Map Pins - AHORA SÍ SON BLANCOS */
+        .map-pin { 
+            position: absolute; 
+            width: 14px; 
+            height: 14px; 
+            background-color: #ffffff; /* Blanco puro */
+            border-radius: 50%; 
+            border: 2px solid rgba(255,255,255,0.8); 
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.8); 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            z-index: 10; /* Por encima del mapa oscuro */
+        }
         .map-pin:hover { transform: scale(1.5); z-index: 20; background-color: var(--accent-blue); border-color: #ffffff; box-shadow: 0 0 20px var(--accent-blue); }
         
         .tooltip-content { visibility: hidden; width: 260px; background-color: #0f172a; color: #fff; text-align: left; border-radius: 8px; padding: 15px; position: absolute; z-index: 30; bottom: 150%; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s; font-size: 0.85rem; border: 1px solid var(--accent-blue); }
         .tooltip-content h4 { color: var(--accent-blue); margin-bottom: 5px; font-size: 0.95rem; border-bottom: none; }
         .map-pin:hover .tooltip-content { visibility: visible; opacity: 1; }
         
-        /* Map Pin Positions (Aproximadas para visualización) */
+        /* Map Pin Positions */
         .pin-usa { top: 32%; left: 18%; }
         .pin-mexico { top: 43%; left: 16%; }
         .pin-colombia { top: 52%; left: 24%; }
         .pin-peru { top: 62%; left: 25%; }
-        .pin-spain { top: 28%; left: 47%; } /* España en Europa */
+        .pin-spain { top: 28%; left: 47%; }
         .pin-india { top: 44%; left: 70%; }
         .pin-aus { top: 75%; left: 85%; }
 
@@ -151,205 +170,3 @@
         </div>
         <div class="hero-image">
             <img src="perfil.jpg" alt="Norely Forero" onerror="this.src='https://via.placeholder.com/220x220/1e293b/00e5ff?text=Foto'">
-        </div>
-    </section>
-
-    <section>
-        <h2>Capabilities</h2>
-        <p>A multi-disciplinary profile leveraging data science to solve logistics, customs, and planning challenges.</p>
-        <div class="tags" style="margin-top: 25px;">
-            <span class="tag">Freight & Logistics</span>
-            <span class="tag">Customs Compliance</span>
-            <span class="tag">Demand Planning</span>
-            <span class="tag">Time Series</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Python & R</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">SAP & BPCS</span>
-        </div>
-    </section>
-
-    <section id="projects" class="resume-section">
-        <h2 style="text-align: center; margin-bottom: 40px;">Selected Data Projects</h2>
-        <div class="projects-grid">
-            
-            <div class="project-card">
-                <h3>Retail Demand Forecasting — Adidas US</h3>
-                <p>Hybrid approach (Python and Power Query) using 2-years of retail sales data (2020–2021) to project demand. Optimized forecasting sMAPE to 9.7% for footwear and 6.0% for apparel.</p>
-                <div class="tags">
-                    <span class="tag">Python</span><span class="tag">Power Query</span><span class="tag">Time Series</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://bucolic-semifreddo-b945ae.netlify.app/" target="_blank">Live Dashboard &rarr;</a>
-                    <a href="https://github.com/Norelytics/retail-demand-forecasting-adidas" target="_blank">GitHub &rarr;</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>Chemical Sector S&OP</h3>
-                <p>Built and compared forecasting models (ETS, ARIMA, econometric) in R and Python for 100 SKUs. Estimated safety stock identifying inventory trade-offs and stockout risks.</p>
-                <div class="tags">
-                    <span class="tag">R</span><span class="tag">ARIMA</span><span class="tag">Inventory Strategy</span>
-                </div>
-                <div class="project-links">
-                    <a href="#">Academic Thesis (UCLM) &rarr;</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>Freelance Data Research & Analytics</h3>
-                <p>Data quality and market intelligence projects (2017 - 2024). Pricing benchmark for over 600 references and validation of nutritional/medical databases (USA/Australia).</p>
-                <div class="tags">
-                    <span class="tag">Data Cleansing</span><span class="tag">Market Research</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://www.freelancer.com/u/norelyforeromar" target="_blank">Freelancer Profile &rarr;</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="global" class="map-section">
-        <div class="map-wrapper">
-            <h2 style="text-align: center; margin-bottom: 10px;">Global Operational Footprint</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-main);">Logistics isn't local. Study, work, and data project experience across three continents.</p>
-            
-            <div class="map-container">
-                <div class="map-pin pin-usa"><div class="tooltip-content"><h4>United States (Remote)</h4><p>Medical Data Cleansing & Migration for USA/Australian clients.</p></div></div>
-                <div class="map-pin pin-mexico"><div class="tooltip-content"><h4>Mexico (Remote)</h4><p>Market Intelligence & Statistical trend analysis.</p></div></div>
-                <div class="map-pin pin-colombia"><div class="tooltip-content"><h4>Colombia</h4><p>Logistics & Customs Coordinator. BSc in International Business.</p></div></div>
-                <div class="map-pin pin-peru"><div class="tooltip-content"><h4>Peru (Remote)</h4><p>Weekly nutritional app product validation.</p></div></div>
-                <div class="map-pin pin-spain"><div class="tooltip-content"><h4>Spain</h4><p>MSc in Economic Data Analytics. Chemical sector demand forecasting TFM.</p></div></div>
-                <div class="map-pin pin-india"><div class="tooltip-content"><h4>India (Remote)</h4><p>International Benchmarking for over 600 retail product references.</p></div></div>
-                <div class="map-pin pin-aus"><div class="tooltip-content"><h4>Australia</h4><p>Customs Clearance & Biosecurity Agent at DHL. Graduate Diplomas.</p></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="resume-section">
-        <h2>Work Experience</h2>
-        
-        <div class="resume-item">
-            <div class="resume-role">
-                <h3>Customs Clearance & Biosecurity Agent</h3>
-                <span class="resume-company">DHL Express Australia (Melbourne, AUS)</span>
-                <ul>
-                    <li>Processed the daily clearance of international shipments within the Australian biosecurity regulatory framework, reducing release times by 20%.</li>
-                    <li>Handled customer inquiries regarding shipment release status, biosecurity requirements, and incidents, ensuring clear communication.</li>
-                    <li>Resolved regulatory and operational issues by coordinating with customs authorities and logistics agents to ensure service continuity.</li>
-                    <li>Identified workflow bottlenecks and proposed process improvements.</li>
-                </ul>
-            </div>
-            <div class="resume-date">Jun 2024 — Jun 2025</div>
-        </div>
-
-        <div class="resume-item">
-            <div class="resume-role">
-                <h3>International Supply Chain Coordinator</h3>
-                <span class="resume-company">Grupo Inintegral GINN (HVAC & Industrial, Remote)</span>
-                <ul>
-                    <li>Managed end-to-end international logistics operations for industrial HVAC projects.</li>
-                    <li>Achieved 25% cost savings and 30% reduction in tracking errors through document automation.</li>
-                </ul>
-            </div>
-            <div class="resume-date">Sep 2017 — Apr 2020</div>
-        </div>
-
-        <div class="resume-item">
-            <div class="resume-role">
-                <h3>Foreign Trade & Supply Chain Analyst</h3>
-                <span class="resume-company">Flexo Spring SAS (Construction Sector, COL)</span>
-                <ul>
-                    <li>Managed 50+ monthly import operations, monitoring KPIs and reconciling costs.</li>
-                    <li>Recorded operations and inventory in ERP BPCS, ensuring full documentary and operational traceability.</li>
-                </ul>
-            </div>
-            <div class="resume-date">Feb 2014 — Oct 2019</div>
-        </div>
-
-        <div class="resume-item">
-            <div class="resume-role">
-                <h3>Import Coordinator</h3>
-                <span class="resume-company">Importadora Casa Colombia (COL)</span>
-                <ul>
-                    <li>Led procurement for Colombia’s first Solar Park with Trackers, achieving 15% cost reduction.</li>
-                </ul>
-            </div>
-            <div class="resume-date">May 2012 — Aug 2013</div>
-        </div>
-
-        <div class="resume-item">
-            <div class="resume-role">
-                <h3>Procurement & Supply Chain Analyst</h3>
-                <span class="resume-company">Fulgor Energía SAS (Toys & Wines Sectors, COL)</span>
-            </div>
-            <div class="resume-date">Feb 2010 — Mar 2011</div>
-        </div>
-    </section>
-
-    <section class="resume-section">
-        <h2>Education</h2>
-        
-        <div class="resume-item" style="margin-bottom: 20px;">
-            <div class="resume-role">
-                <h3>MSc in Economic Data Modelling & Analytics</h3>
-                <span class="resume-company">Universidad de Castilla-La Mancha (Spain)</span>
-            </div>
-            <div class="resume-date">2025 — 2026</div>
-        </div>
-
-        <div class="resume-item" style="margin-bottom: 20px;">
-            <div class="resume-role">
-                <h3>Google Data Analytics Professional Certificate</h3>
-                <span class="resume-company">Coursera (Remote)</span>
-            </div>
-            <div class="resume-date">2024</div>
-        </div>
-
-        <div class="resume-item" style="margin-bottom: 20px;">
-            <div class="resume-role">
-                <h3>Graduate Diplomas (Leadership, Management, Int. Business)</h3>
-                <span class="resume-company">Mercury Colleges & ACBI (Australia)</span>
-            </div>
-            <div class="resume-date">2021 — 2023</div>
-        </div>
-
-        <div class="resume-item">
-            <div class="resume-role">
-                <h3>BSc in International Business</h3>
-                <span class="resume-company">Corporación Unificada Nacional CUN (Colombia)</span>
-            </div>
-            <div class="resume-date">2006 — 2011</div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Norely Forero. Data Applied to Operations.</p>
-    </footer>
-</div>
-
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#ffffff" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.3, "random": false },
-            "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#00e5ff", "opacity": 0.2, "width": 1 },
-            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-        },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } }, "push": { "particles_nb": 4 } }
-        },
-        "retina_detect": true
-    });
-</script>
-
-</body>
-</html>
