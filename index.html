@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norely Forero | Supply Chain Analyst & Demand Planner</title>
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-color: #0d1117;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --accent-hover: #79c0ff;
+            --border: #30363d;
+            --card-bg: #161b22;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { color: #ffffff; font-weight: 600; margin-bottom: 15px; }
+        h1 { font-size: 3rem; letter-spacing: -1px; line-height: 1.1; margin-bottom: 25px; }
+        h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 60px; margin-bottom: 30px; }
+        h3 { font-size: 1.25rem; margin-bottom: 5px; }
+        p { margin-bottom: 20px; font-size: 1.05rem; }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 60px;
+            font-size: 0.95rem;
+        }
+        nav a { color: var(--text-muted); }
+        nav a:hover { color: var(--text-main); text-decoration: none; }
+
+        /* Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tag {
+            background-color: rgba(88, 166, 255, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 2em;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+        }
+
+        /* Project Cards */
+        .project {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        .project:hover { border-color: var(--text-muted); }
+        .project-links { margin-top: 15px; font-size: 0.9rem; }
+        .project-links a { margin-right: 15px; font-weight: 500; }
+
+        /* Timeline / Experience */
+        .job { margin-bottom: 35px; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .job-date { color: var(--text-muted); font-size: 0.9rem; }
+        .job-company { color: var(--text-muted); font-weight: 400; font-size: 1.1rem; }
+        ul { padding-left: 20px; color: var(--text-muted); }
+        li { margin-bottom: 8px; }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        @media (max-width: 600px) {
+            .job-header { flex-direction: column; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <a href="#about">About</a>
+        <a href="#now">Now</a>
+        <a href="#background">Background</a>
+        <a href="#projects">Selected Work</a>
+        <a href="#experience">Experience</a>
+    </nav>
+
+    <section id="about">
+        <p style="color: var(--accent); font-weight: 500; margin-bottom: 10px;">DATA-DRIVEN LOGISTICS</p>
+        <h1>Supply Chain Analyst &<br>Demand Planner.</h1>
+        <p>I bridge the gap between physical logistics operations and advanced data analytics. I don't just build forecasting models; I build them based on over 12 years of hands-on experience in international customs, procurement, and supply chain management.</p>
+        <p>A statistical model is only as good as its operational viability. I use Python, R, and SQL to solve the exact bottlenecks I used to manage manually.</p>
+        <div style="margin-top: 30px;">
+            <a href="https://linkedin.com/in/norely-forero" target="_blank" style="margin-right: 20px;">LinkedIn</a>
+            <a href="https://github.com/Norelytics" target="_blank" style="margin-right: 20px;">GitHub</a>
+            <a href="mailto:norely.forero@outlook.com">norely.forero@outlook.com</a>
+        </div>
+    </section>
+
+    <section id="now">
+        <h2>Now</h2>
+        <p>Currently completing my <strong>MSc in Economic Data Modelling & Analytics</strong> at the Universidad de Castilla-La Mancha (UCLM). My thesis focuses on demand forecasting and safety stock optimization for 100 SKUs in the chemical sector (Laboratorios Vinfer), evaluating accuracy metrics (MAE, RMSE, MAPE) and forecast bias using ETS, ARIMA, and econometric models.</p>
+        <p>Relocating to Madrid / Colmenar Viejo, Spain.</p>
+    </section>
+
+    <section id="background">
+        <h2>Background</h2>
+        <p>Applied analytics in supply chain only works if you actually know how the physical world operates. My expertise comes from a decade of moving freight and a formal transition into data science.</p>
+        <div class="tags">
+            <span class="tag">Supply Chain Planning</span>
+            <span class="tag">Demand Forecasting</span>
+            <span class="tag">Python</span>
+            <span class="tag">R</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">International Customs</span>
+            <span class="tag">ERP BPCS</span>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Selected Work</h2>
+        
+        <div class="project">
+            <h3>Retail Demand Forecasting: Python vs. Excel</h3>
+            <p>A hands-on time series modeling exercise using retail sales data (Adidas US, 2020–2021) to compare forecasting performance and supply chain KPIs across different product categories.</p>
+            <p>Implemented Naive, Rolling MA, and Exponential Smoothing models, achieving optimal forecast accuracy (9.7% sMAPE for footwear in Python, 6.0% for apparel in Power Query) while mitigating systematic bias for inventory control.</p>
+            <div class="tags" style="margin-bottom: 0; margin-top: 15px;">
+                <span class="tag">Python</span><span class="tag">Power Query</span><span class="tag">Time Series</span>
+            </div>
+            <div class="project-links">
+                <a href="https://bucolic-semifreddo-b945ae.netlify.app/" target="_blank">View Live Dashboard</a>
+                <a href="https://github.com/Norelytics/retail-demand-forecasting-adidas" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <h3>Chemical Sector: Safety Stock & S&OP Optimization</h3>
+            <p>Built and compared forecasting models (ETS, ARIMA) in R and Python for 63 monthly time series. Estimated safety stock per SKU based on demand variability and target service levels, identifying stockout risks and inventory trade-offs.</p>
+            <div class="tags" style="margin-bottom: 0; margin-top: 15px;">
+                <span class="tag">R</span><span class="tag">ARIMA</span><span class="tag">Inventory Strategy</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <h3>Customs Clearance & Biosecurity Agent <span class="job-company">@ DHL Express Australia</span></h3>
+                <span class="job-date">2024 — 2025</span>
+            </div>
+            <ul>
+                <li>Processed 80+ international shipments daily under strict Australian regulatory requirements.</li>
+                <li>Identified workflow bottlenecks and proposed process improvements, reducing clearance delays by 20%.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <h3>International Supply Chain Coordinator <span class="job-company">@ Grupo Inintegral GINN</span></h3>
+                <span class="job-date">2017 — 2020</span>
+            </div>
+            <ul>
+                <li>Managed end-to-end international logistics operations for industrial HVAC projects.</li>
+                <li>Achieved 25% cost savings and 30% reduction in tracking errors through document automation.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <h3>Foreign Trade & Supply Chain Analyst <span class="job-company">@ Flexo Spring</span></h3>
+                <span class="job-date">2014 — 2019</span>
+            </div>
+            <ul>
+                <li>Managed 50+ monthly import operations, monitoring KPIs and reconciling costs against operational plans.</li>
+                <li>Reduced import costs by 25% and transport costs by 15% through route optimization and load consolidation.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div>© 2026 Norely Forero</div>
+        <div>Based in Spain</div>
+    </footer>
+</div>
+
+</body>
+</html>
